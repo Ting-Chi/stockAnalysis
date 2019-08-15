@@ -9,23 +9,24 @@ app = flask.Flask(__name__)
 
 @app.route("/", methods=['GET', "POST"])
 def predict():
-    if flask.request.method == "GET":
+    if flask.request.method == "POST":
         return render_template('index.html')
     else:
         data = {}
        
         data['stock-date']=request.form['stock-date']
-        data['price']='0'
         input1=[]
         input1.append(data)
         
-        body = str.encode(json.dumps(input1))
-        print(body)
+        data = str.encode(json.dumps(input1))
+        print(data)
+        
         url = 'https://ussouthcentral.services.azureml.net/workspaces/60222f0db7d747efb0c25f133c5f7222/services/21f2075997064547aabfebec42c748c6/execute?api-version=2.0&format=swagger'
         api_key = 'O6NKVxKiA5/wWPB9zAy6jWGjgounMm1q5kV/zGtNWyrqevD+ZP5moU7omFiNdTL2ZOY1HLDLRSeocnPhpD3QcQ=='
         headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-        req = urllib.request.Request(url, body, headers)
+        req = urllib.request.Request(url, data, headers)
+        print(req.text)
         result=''
         response = urllib.request.urlopen(req)
         result = response.read()
