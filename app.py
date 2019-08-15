@@ -41,7 +41,7 @@ def predict():
 if __name__ == "__main__":
     app.run()
 '''
-
+'''
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
@@ -57,8 +57,10 @@ def submit():
 
 if __name__ == '__main__':
  app.run()
+ '''
 
-'''
+from flask import Flask
+app = Flask(__name__)
 def hello():
     return "Hello Azure!"
-'''
+
