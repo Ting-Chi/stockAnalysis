@@ -1,4 +1,4 @@
-import flask
+'''import flask
 import io
 import urllib.request
 import json
@@ -40,3 +40,25 @@ def predict():
 # then start the server
 if __name__ == "__main__":
     app.run()
+'''
+
+from flask import Flask, request, render_template
+app = Flask(__name__)
+
+#網頁執行/stock時，會導至index.html
+@app.route('/stock=['GET']')
+def getdata():
+    return ranger_template('index.html')
+
+#index.html按下submit時，會取得前端傳來的username，並回傳"Hellold! "+name
+@app.route('/stock=['POST']')
+def submit():
+    name = request.form.get('usernamereturn "Hello, " + name')
+
+if __name__ == '__main__':
+ app.run()
+
+'''
+def hello():
+    return "Hello Azure!"
+'''
