@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>股票預測</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 	<h1>股票預測</h1>
-	<form method="get">
-		<p>輸入股票日期:<input type="date" name="stock-date">
+	<form method='post' action="{{ url_for('submit') }}">
+		<p>輸入股票日期: <input type='date' name='date' />
+		</p>
+		<p>
 			<input type="submit" value="估算">
 		</p>
 	</form>
